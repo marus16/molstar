@@ -224,6 +224,8 @@ float depthToViewZ(const in float isOrtho, const in float linearClipZ, const in 
     #define inverse4(m) inverse(m)
 #endif
 
+// Folloing taken from https://www.shadertoy.com/view/XsX3zB
+
 /* discontinuous pseudorandom uniformly distributed in [-0.5, +0.5]^3 */
 vec3 random3(vec3 c) {
 	float j = 4096.0*sin(dot(c,vec3(17.0, 59.4, 15.0)));

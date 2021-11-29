@@ -21,11 +21,11 @@ export const assign_material_color = `
         material.rgb = mix(material.rgb, vOverpaint.rgb, vOverpaint.a);
     #endif
 
-	// vec3 p3 = vec3(gl_FragCoord.xy, 0);
-	// float value = simplex3d_fractal(p3*8.0+8.0);	
-	// value = 0.5 + 0.5*value;
-	// value *= smoothstep(0.0, 0.05, abs(0.6-p3.x));	
-    // material.rgb = mix(material.rgb, vec3(value), 0.33);
+	vec3 p3 = vec3(gl_FragCoord.xy, 0);
+	float value = simplex3d_fractal(p3*8.0+8.0);	
+	value = 0.5 + 0.5*value;
+	value *= smoothstep(0.0, 0.05, abs(0.6-p3.x));	
+    material.rgb = mix(material.rgb, vec3(value), 0.33);
 
     float metalness = uMetalness;
     float roughness = uRoughness;
