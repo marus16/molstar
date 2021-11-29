@@ -52,6 +52,14 @@ void main() {
                     normal = normal * (float(frontFacing) * 2.0 - 1.0);
                 #endif
             #endif
+
+
+            vec3 p3 = vec3(gl_FragCoord.xy, 0);
+            float value = simplex3d_fractal(p3*8.0+8.0);	
+            value = 0.5 + 0.5*value;
+            value *= smoothstep(0.0, 0.005, abs(0.6-p3.x));	
+            normal.xyz = normalize(mix(normal.xyz, vec3(value), 0.1));
+
             #include apply_light_color
         #endif
 
